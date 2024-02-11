@@ -1,6 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-default_kscan: kscan {
+ &kscan0 {
 
   col-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>,
               <&gpio1 4 GPIO_ACTIVE_HIGH>,
