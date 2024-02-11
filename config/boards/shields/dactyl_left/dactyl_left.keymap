@@ -5,7 +5,6 @@
 / {
   keymap {
     compatible = "zmk,keymap";
-    label = "dactyl_left";
     default_layer {
       bindings = <
       &kp KP_N7 &kp KP_N8 &mo 1
