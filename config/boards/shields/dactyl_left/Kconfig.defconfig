@@ -1,6 +1,6 @@
 if SHIELD_DACTYL_LEFT
 
-config ZMK_KEYBOARD_SHIELD_DACTYL_LEFT
+config ZMK_KEYBOARD_NAME
     default "dactyl_left"
 
 endif
