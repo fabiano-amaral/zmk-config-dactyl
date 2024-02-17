@@ -1,15 +1,14 @@
 if SHIELD_DACTYL_LEFT
 
-config ZMK_KEYBOARD_NAME
-    default "dactyl_left"
-
-endif
+    config ZMK_KEYBOARD_NAME
+        default "dactyl_left"
+    endif
 
 if SHIELD_DACTYL_RIGHT
 
-config ZMK_KEYBOARD_NAME
-    default "dactyl_right"
-endif
+    config ZMK_KEYBOARD_NAME
+        default "dactyl_right"
+    endif
 
 if SHIELD_DACTYL_LEFT || SHIELD_DACTYL_RIGHT
 
