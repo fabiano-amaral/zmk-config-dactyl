@@ -8,7 +8,6 @@
 #define DEFAULT 0
 #define LWR 1
 #define RSE 2
-isso aqui é um teste
 
 / {
   keymap {
