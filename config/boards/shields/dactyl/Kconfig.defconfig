@@ -1,11 +1,14 @@
 if SHIELD_DACTYL_LEFT
 
-    config ZMK_KEYBOARD_NAME
-        default "dactyl_left"
-    endif
+config ZMK_KEYBOARD_NAME
+    default "dactyl_left"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+
+endif
 
 if SHIELD_DACTYL_RIGHT
-
     config ZMK_KEYBOARD_NAME
         default "dactyl_right"
     endif
