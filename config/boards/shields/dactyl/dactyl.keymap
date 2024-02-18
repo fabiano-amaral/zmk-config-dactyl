@@ -14,11 +14,11 @@
     compatible = "zmk,keymap";
     default_layer {
             bindings = <
-                &kp TAB   &kp Q     &kp W     &kp E      &kp R      &kp T               &kp Y     &kp U     &kp I     &kp O     &kp P    &kp MINUS
-                &kp LSHFT &kp A     &kp S     &kp D      &kp F      &kp G               &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT
+                &kp TAB   &kp Q     &kp W     &kp E      &kp R      &bootloader         &bootloader     &kp U     &kp I     &kp O     &kp P    &kp MINUS
+                &kp LSHFT &kp A     &kp S     &kp D      &kp F      &sys_reset          &sys_reset     &kp J     &kp K     &kp L     &kp SEMI &kp SQT
                 &kp LCTRL &kp Z     &kp X     &kp C      &kp V      &kp B               &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp BSLH
-                                    &kp LBKT  &kp RBKT  &kp SPACE  &kp ENTER            &kp RGUI  &kp BSPC  &kp PLUS  &kp EQUAL
-                                              &mo LWR   &kp CAPS   &kp LALT             &kp N     &kp N     &kp A
+                                    &kp LBKT  &kp RBKT   &kp SPACE  &kp ENTER           &kp RGUI  &kp BSPC  &kp PLUS  &kp EQUAL
+                                              &mo LWR    &kp CAPS   &kp LALT            &kp N     &kp N     &kp A
             >;
         };
     lower_layer {
