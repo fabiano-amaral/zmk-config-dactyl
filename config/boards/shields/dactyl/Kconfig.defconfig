@@ -20,9 +20,6 @@ if SHIELD_DACTYL_LEFT || SHIELD_DACTYL_RIGHT
 config ZMK_SPLIT
     default y
 
-config ZMK_SPLIT_BLE
-    default y
-
 config BT_CTLR
     default BT
 
