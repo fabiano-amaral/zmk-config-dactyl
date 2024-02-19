@@ -21,7 +21,7 @@
 &kp ESCAPE  &mt LEFT_ALT A  &mt LEFT_GUI S  &mt LEFT_SHIFT D  &mt LEFT_CONTROL F  &kp G        &kp H     &mt LCTRL J  &mt LSHIFT K  &mt LEFT_GUI L  &mt LALT SEMICOLON  &kp SQT
 &caps_word  &kp Z           &kp X           &kp C             &kp V               &kp B        &kp N     &kp M        &kp COMMA     &kp DOT         &kp FSLH            &kp BSLH
                             &kp LBKT        &kp RBKT          &kp SPACE           &kp ENTER    &kp RGUI  &kp BSPC     &kp PLUS      &kp EQUAL
-                                            &kp LALT          &mo 1               &mo 2        &mo 2     &mo 1        &kp ENTER
+                                            &mo 1             &kp LALT            &mo 2        &mo 2     &mo 1        &kp ENTER
             >;
         };
 
