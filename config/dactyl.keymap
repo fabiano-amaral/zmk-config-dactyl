@@ -7,6 +7,10 @@
 #define LWR 1
 #define RSE 2
 
+&mt {
+    tapping-term-ms = <130>;
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
