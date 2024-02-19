@@ -3,6 +3,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#include "includes/home_row.dtsi"
+
 #define DEFAULT 0
 #define LWR 1
 #define RSE 2
