@@ -9,7 +9,7 @@
 #define LWR 1
 #define RSE 2
 
-&bhm {
+&mt {
     tapping-term-ms = <400>;
     quick-tap-ms = <100>;
 };
