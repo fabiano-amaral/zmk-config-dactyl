@@ -4,8 +4,6 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // #include "includes/home_row.dtsi"
-#define XXX &none
-#define ___ &trans
 #define DEFAULT 0
 #define LWR 1
 #define RSE 2
@@ -53,29 +51,29 @@ combo_##name {               \
         lower_layer {
             bindings = <
                         &kp GRAVE  &kp N1     &kp N2      &kp N3       &kp N4        &kp N5         &kp N6    &kp N7    &kp N8         &kp N9      &kp N0  &kp PRINTSCREEN
-                        ___     &kp TILDE  &kp MINUS   &kp PLUS     &kp KP_EQUAL  &kp LA(TAB)    &kp LEFT  &kp DOWN  &kp UP         &kp RIGHT   ___  ___
-                        ___     ___     ___      ___       ___        ___         &kp HOME  &kp END   &kp PAGE_DOWN  &kp PG_UP   ___  ___
-                                              ___      ___       ___        ___         ___    ___    ___         ___
-                                                          ___       &mo RSE       ___         ___    ___    ___
+                        &trans     &kp TILDE  &kp MINUS   &kp PLUS     &kp KP_EQUAL  &kp LA(TAB)    &kp LEFT  &kp DOWN  &kp UP         &kp RIGHT   &trans  &trans
+                        &trans     &trans     &trans      &trans       &trans        &trans         &kp HOME  &kp END   &kp PAGE_DOWN  &kp PG_UP   &trans  &trans
+                                              &trans      &trans       &trans        &trans         &trans    &trans    &trans         &trans
+                                                          &trans       &mo RSE       &trans         &trans    &trans    &trans
             >;
         };
 
         raise_layer {
             bindings = <
-                        ___  ___  ___    ___        ___        ___          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp EXCLAMATION  &kp     &kp     &kp
-                        ___  ___  ___    ___        ___        ___          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QMARK        &kp     &kp     &kp
-                        ___  ___  ___    ___        ___        ___          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      ___           ___  ___  ___
-                                        ___    ___        ___        ___          ___                ___                 ___           ___
-                                                                ___        ___          ___                ___                 ___           ___
+                        &trans  &trans  &trans    &trans        &trans        &trans          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp EXCLAMATION  &kp     &kp     &kp
+                        &trans  &trans  &trans    &trans        &trans        &trans          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QMARK        &kp     &kp     &kp
+                        &trans  &trans  &trans    &trans        &trans        &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans           &trans  &trans  &trans
+                                        &trans    &trans        &trans        &trans          &trans                &trans                 &trans           &trans
+                                                                &trans        &trans          &trans                &trans                 &trans           &trans
             >;
         };
         adjust_layer {
             bindings = <
-                        &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    ___  ___  ___  ___  ___  ___
-                        &out OUT_BLE    &kp J        ___        ___        ___         &bootloader     ___  ___  ___  ___  ___  ___
-                        &out OUT_USB    ___        ___        ___        ___        ___          ___  ___  ___  ___  ___  ___
-                                                      ___        ___        ___        ___          ___  ___  ___  ___
-                                                                    ___        ___        ___          ___  ___  ___
+                        &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
+                        &out OUT_BLE    &kp J        &trans        &trans        &trans         &bootloader     &trans  &trans  &trans  &trans  &trans  &trans
+                        &out OUT_USB    &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                                      &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans
+                                                                    &trans        &trans        &trans          &trans  &trans  &trans
             >;
         };
 
