@@ -24,7 +24,7 @@ combo_##name {               \
 / {
     combos {
         compatible = "zmk,combos";
-        COMBO(caps_word, &caps_word, 19 20);
+        COMBO(caps_word, &caps_word, 19 20)
     };
     behaviors {
         bhm: balanced_homerow_mods {
