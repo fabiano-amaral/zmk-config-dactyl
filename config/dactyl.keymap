@@ -5,7 +5,7 @@
 
 // #include "includes/home_row.dtsi"
 #define XXX &none
-#define ___ ___
+#define &trans ___
 #define DEFAULT 0
 #define LWR 1
 #define RSE 2
