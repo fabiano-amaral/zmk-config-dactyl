@@ -8,6 +8,13 @@
 #define DEFAULT 0
 #define LWR 1
 #define RSE 2
+#define COMBO(name, kp, pos) \
+combo_##name {               \
+    timeout-ms    = <30>;    \
+    bindings      = <kp>;    \
+    key-positions = <pos>;   \
+    layers        = <0 1>;   \
+};
 
 &mt {
     tapping-term-ms = <400>;
@@ -15,6 +22,10 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        COMBO(caps_word, &caps_word, 19 20);
+    };
     behaviors {
         bhm: balanced_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -42,7 +53,7 @@
             bindings = <
 &kp GRAVE  &kp N1  &kp N2      &kp N3       &kp N4   &kp N5    &kp N6    &kp N7         &kp N8       &kp N9      &kp N0  &kp PRINTSCREEN
 &trans     &trans  &trans      &trans       &trans   &trans    &kp LEFT  &kp DOWN       &kp UP       &kp RIGHT   &trans  &trans
-&trans     &trans  &trans      &trans       &trans   &trans    &kp HOME  &kp PAGE_DOWN  &kp PG_UP    &kp END     &trans  &trans
+&trans     &trans  &trans      &trans       &trans   &trans    &kp HOME  &kp END        &kp PG_DOWN  &kp PG_UP   &trans  &trans
                    &sys_reset  &bootloader  &trans   &trans    &trans    &trans         &bootloader  &sys_reset
                                &trans       &mo RSE  &trans    &trans    &trans         &trans
             >;
