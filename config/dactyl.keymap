@@ -35,9 +35,8 @@ combo_##name {               \
             bindings = <&kp>, <&kp>;
         };
     };
-    keymap
+    keymap {
         compatible = "zmk,keymap";
-
         default_layer {
             bindings = <
                         &kp TAB     &kp Q               &kp W               &kp E               &kp R               &kp T                           &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
@@ -77,7 +76,7 @@ combo_##name {               \
             >;
         };
 
-    ;
+    };
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
