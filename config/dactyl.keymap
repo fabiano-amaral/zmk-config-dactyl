@@ -20,7 +20,7 @@ combo_##name {               \
     quick-tap-ms = <100>;
 };
 
-/
+/{
     combos {
         compatible = "zmk,combos";
         COMBO(caps_word, &caps_word, 7 8)
@@ -86,4 +86,4 @@ combo_##name {               \
             then-layer = <3>;
         };
     };
-;
+};
