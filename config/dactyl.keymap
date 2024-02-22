@@ -9,6 +9,7 @@
 #define RSE 2
 #define xxx &none
 #define ___ &trans
+#define BTSEL &bt BT_SEL
 #define COMBO(name, kp, pos) \
 combo_##name {               \
     timeout-ms    = <30>;    \
@@ -41,40 +42,40 @@ combo_##name {               \
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-                        &kp TAB     &kp Q          &kp W           &kp E           &kp R           &kp T           &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
-                        &kp ESCAPE  &bhm LALT A    &bhm LGUI S     &bhm LSHFT D    &bhm LCTRL F    &kp G           &kp H       &bhm LCTRL J    &bhm LSHIFT K   &bhm LGUI L     &bhm LALT SEMI      &kp SQT
-                        &caps_word  &kp Z          &kp X           &kp C           &kp V           &kp B           &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp BSLH
-                                                   &kp LBKT        &kp RBKT        &kp SPACE       &kp ENTER       &kp RGUI    &kp BSPC        &kp PLUS        &kp EQUAL
-                                                   &mo LWR         &kp LALT        &mo 2           &mo 2           &mo 1       &lt 2 RETURN
+                        &kp TAB     &kp Q          &kp W           &kp E           &kp R           &kp T            &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
+                        &kp ESCAPE  &bhm LALT A    &bhm LGUI S     &bhm LSHFT D    &bhm LCTRL F    &kp G            &kp H       &bhm LCTRL J    &bhm LSHIFT K   &bhm LGUI L     &bhm LALT SEMI      &kp SQT
+                        &caps_word  &kp Z          &kp X           &kp C           &kp V           &kp B            &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp BSLH
+                                                   &kp LBKT        &kp RBKT        &lt RSE SPACE   &kp ENTER        &kp RGUI    &lt RSE BSPC     &kp PLUS        &kp EQUAL
+                                                   &mo LWR         &kp LALT        &mo RSE         &mo RSE          &mo LWR     &lt LWR RETURN
             >;
         };
 
         lower_layer {
             bindings = <
-                        &kp PSCRN   &kp N1      &kp N2          &kp N3          &kp N4          &kp N5          &kp N6      &kp N7      &kp N8              &kp N9          &kp N0      &kp BSPC
-                        ___         &kp TILDE   &kp MINUS       &kp PLUS        &kp EQUAL       &kp LG(TAB)     &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
-                        ___         ___         &kp UNDER       ___             ___             ___             &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
-                                    ___         ___             ___             ___             ___             ___         ___         ___
-                                                ___             &mo RSE         ___             ___             ___         ___
+                        &kp PSCRN   &kp N1      &kp N2          &kp N3          &kp N4          &kp N5              &kp N6      &kp N7      &kp N8              &kp N9          &kp N0      &kp BSPC
+                        ___         &kp TILDE   &kp MINUS       &kp PLUS        &kp EQUAL       &kp LG(TAB)         &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
+                        ___         ___         &kp UNDER       ___             ___             ___                 &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
+                                    ___         ___             ___             ___             ___                 ___         ___         ___
+                                                ___             &mo RSE         ___             ___                 ___         ___
             >;
         };
 
         raise_layer {
             bindings = <
-                        ___               ___      ___      ___      ___      ___         &kp LEFT_BRACE      &kp RIGHT_BRACE     &kp EXCL    ___         ___      ___
-                        ___               ___      ___      ___      ___      ___         &kp LPAR            &kp RPAR            &kp QMARK   ___         ___      ___
-                        ___               ___      ___      ___      ___      ___         &kp LEFT_BRACKET    &kp RIGHT_BRACKET   ___         ___         ___      ___
-                                                   ___      ___      ___      ___         ___                 ___                 ___         ___
-                                                            ___      ___      ___         ___                 ___                 ___
+                        ___               ___      ___      ___      ___      ___                                   &kp LEFT_BRACE      &kp RIGHT_BRACE     &kp EXCL    ___         ___      ___
+                        ___               ___      ___      ___      ___      ___                                   &kp LPAR            &kp RPAR            &kp QMARK   ___         ___      ___
+                        ___               ___      ___      ___      ___      ___                                   &kp LEFT_BRACKET    &kp RIGHT_BRACKET   ___         ___         ___      ___
+                                                   ___      ___      ___      ___                                   ___                 ___                 ___         ___
+                                                            ___      ___      ___                                   ___                 ___                 ___
             >;
         };
         adjust_layer {
             bindings = <
-                        &bt BT_CLR_ALL      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans  &trans
-                        &out OUT_BLE        &kp J          &trans         &trans          &trans          &bootloader                     &trans  &trans  &trans  &trans  &trans  &trans
-                        &out OUT_USB        &trans         &trans         &trans          &trans          &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-                                                           &trans         &trans          &trans          &trans                          &trans  &trans  &trans  &trans
-                                                           &trans         &trans          &trans                                          &trans  &trans  &trans
+                        &bt BT_CLR_ALL  BTSEL 0 BTSEL 1  BTSEL 2   BTSEL 3   BTSEL 4                                &trans  &trans  &trans  &trans  &trans  &trans
+                        &out OUT_BLE    &kp J   &trans   &trans    &trans    &bootloader                            &trans  &trans  &trans  &trans  &trans  &trans
+                        &out OUT_USB    &trans  &trans   &trans    &trans    &trans                                 &trans  &trans  &trans  &trans  &trans  &trans
+                                                &trans   &trans    &trans    &trans                                 &trans  &trans  &trans  &trans
+                                                         &trans    &trans    &trans                                 &trans  &trans  &trans
             >;
         };
 
