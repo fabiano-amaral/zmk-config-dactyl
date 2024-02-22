@@ -7,6 +7,8 @@
 #define DEFAULT 0
 #define LWR 1
 #define RSE 2
+#define xxx &none
+#define ___ &trans
 #define COMBO(name, kp, pos) \
 combo_##name {               \
     timeout-ms    = <30>;    \
@@ -39,31 +41,31 @@ combo_##name {               \
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-                        &kp TAB     &kp Q               &kp W               &kp E               &kp R               &kp T                 &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
-                        &kp ESCAPE  &bhm LEFT_ALT A     &bhm LEFT_GUI S     &bhm LEFT_SHIFT D   &bhm LEFT_CONTROL F &kp G                 &kp H       &bhm LCTRL J    &bhm LSHIFT K   &bhm LEFT_GUI L &bhm LALT SEMICOLON &kp SQT
-                        &caps_word  &kp Z               &kp X               &kp C               &kp V               &kp B                 &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp BSLH
-                                                        &kp LBKT            &kp RBKT            &kp SPACE           &kp ENTER             &kp RGUI    &kp BSPC        &kp PLUS        &kp EQUAL
-                                                                            &mo 1               &kp LALT            &mo 2                 &mo 2       &mo 1           &lt 2 RETURN
+                        &kp TAB     &kp Q          &kp W           &kp E           &kp R           &kp T           &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
+                        &kp ESCAPE  &bhm LALT A    &bhm LGUI S     &bhm LSHFT D    &bhm LCTRL F    &kp G           &kp H       &bhm LCTRL J    &bhm LSHIFT K   &bhm LGUI L     &bhm LALT SEMI      &kp SQT
+                        &caps_word  &kp Z          &kp X           &kp C           &kp V           &kp B           &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp BSLH
+                                                   &kp LBKT        &kp RBKT        &kp SPACE       &kp ENTER       &kp RGUI    &kp BSPC        &kp PLUS        &kp EQUAL
+                                                   &mo LWR         &kp LALT        &mo 2           &mo 2           &mo 1       &lt 2 RETURN
             >;
         };
 
-        lower_layer {
+        lower_layer
             bindings = <
-                        &kp PSCRN           &kp TILDE       &kp MINUS       &kp PLUS    &kp EQUAL       &kp LG(TAB)                       &kp N6      &kp N7      &kp N8              &kp N9          &kp N0      &kp PRINTSCREEN
-                        &trans              &kp N1          &kp N2          &kp N3      &kp N4          &kp N5                            &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       &trans      &trans
-                        &trans              &trans          &kp UNDER       &trans      &trans          &trans                            &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       &trans      &trans
-                                                            &trans          &trans      &trans          &trans                            &trans      &trans      &trans              &trans
-                                                                            &trans      &mo RSE         &trans                            &trans      &trans      &trans
+                        &kp PSCRN   &kp N1      &kp N2          &kp N3          &kp N4          &kp N5          &kp N6      &kp N7      &kp N8              &kp N9          &kp N0      &kp BSPC
+                        ___         &kp TILDE   &kp MINUS       &kp PLUS        &kp EQUAL       &kp LG(TAB)     &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
+                        ___         ___         &kp UNDER       ___             ___             ___             &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
+                                    ___         ___             ___             ___             ___             ___         ___         ___
+                                                ___             &mo RSE         ___             ___             ___         ___
             >;
         };
 
         raise_layer {
             bindings = <
-                        &kp PRINTSCREEN      &trans      &trans      &trans      &trans      &trans                                       &kp LEFT_BRACE          &kp RIGHT_BRACE             &kp EXCL            &kp         &kp         &kp
-                        &trans               &trans      &trans      &trans      &trans      &trans                                       &kp LPAR                &kp RPAR                    &kp QMARK           &kp         &kp         &kp
-                        &trans               &trans      &trans      &trans      &trans      &trans                                       &kp LEFT_BRACKET        &kp RIGHT_BRACKET           &trans              &trans      &trans      &trans
-                                                                     &trans      &trans      &trans                                       &trans                  &trans                      &trans              &trans      &trans
-                                                                                             &trans                                       &trans                  &trans                      &trans              &trans      &trans
+                        ___               ___      ___      ___      ___      ___         &kp LEFT_BRACE      &kp RIGHT_BRACE     &kp EXCL    ___         ___      ___
+                        ___               ___      ___      ___      ___      ___         &kp LPAR            &kp RPAR            &kp QMARK   ___         ___      ___
+                        ___               ___      ___      ___      ___      ___         &kp LEFT_BRACKET    &kp RIGHT_BRACKET   ___         ___         ___      ___
+                                                   ___      ___      ___      ___         ___                 ___                 ___         ___
+                                                            ___      ___      ___         ___                 ___                 ___
             >;
         };
         adjust_layer {
