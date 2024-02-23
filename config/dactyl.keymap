@@ -53,8 +53,8 @@ combo_##name {               \
         lower_layer {
             bindings = <
                         &kp PSCRN   &kp N1      &kp N2          &kp N3          &kp N4          &kp N5              &kp N6      &kp N7      &kp N8              &kp N9          &kp N0      &kp BSPC
-                        ___         &kp TILDE   &kp MINUS       &kp PLUS        &kp EQUAL       &kp LG(TAB)         &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
-                        ___         ___         &kp UNDER       ___             ___             ___                 &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
+                        ___         &kp TILDE   &kp MINUS       &kp CARET       &kp EQUAL       &kp LG(TAB)         &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
+                        ___         ___         &kp UNDER       &kp PLUS        ___             ___                 &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
                                     ___         ___             ___             ___             ___                 ___         ___         ___
                                                 ___             &mo RSE         ___             ___                 ___         ___
             >;
@@ -62,20 +62,20 @@ combo_##name {               \
 
         raise_layer {
             bindings = <
-                        ___               ___      ___      ___      ___      ___                                   &kp LEFT_BRACE      &kp RIGHT_BRACE     &kp EXCL    ___         ___      ___
-                        ___               ___      ___      ___      ___      ___                                   &kp LPAR            &kp RPAR            &kp QMARK   ___         ___      ___
-                        ___               ___      ___      ___      ___      ___                                   &kp LEFT_BRACKET    &kp RIGHT_BRACKET   ___         ___         ___      ___
-                                                   ___      ___      ___      ___                                   ___                 ___                 ___         ___
-                                                            ___      ___      ___                                   ___                 ___                 ___
+                        ___     ___      ___      ___      ___      ___                                   &kp LEFT_BRACE      &kp RIGHT_BRACE     &kp EXCL    ___         ___      ___
+                        ___     ___      ___      ___      ___      ___                                   &kp LPAR            &kp RPAR            &kp QMARK   ___         ___      ___
+                        ___     ___      ___      ___      ___      ___                                   &kp LEFT_BRACKET    &kp RIGHT_BRACKET   ___         ___         ___      ___
+                                         ___      ___      ___      ___                                   ___                 ___                 ___         ___
+                                                  ___      ___      ___                                   ___                 ___                 ___
             >;
         };
         adjust_layer {
             bindings = <
-                        &bt BT_CLR_ALL  BTSEL 0 BTSEL 1  BTSEL 2   BTSEL 3   BTSEL 4                                &trans  &trans  &trans  &trans  &trans  &trans
-                        &out OUT_BLE    &kp J   &trans   &trans    &trans    &bootloader                            &trans  &trans  &trans  &trans  &trans  &trans
-                        &out OUT_USB    &trans  &trans   &trans    &trans    &trans                                 &trans  &trans  &trans  &trans  &trans  &trans
-                                                &trans   &trans    &trans    &trans                                 &trans  &trans  &trans  &trans
-                                                         &trans    &trans    &trans                                 &trans  &trans  &trans
+                        &bt BT_CLR_ALL  BTSEL 0 BTSEL 1  BTSEL 2   BTSEL 3   BTSEL 4                    &trans  &trans  &trans  &trans  &trans  &trans
+                        &out OUT_BLE    &kp J   ___   ___    ___    &bootloader                         ___     ___     ___     ___     ___     ___
+                        &out OUT_USB    ___     ___   ___    ___    ___                                 ___     ___     ___     ___     ___     ___
+                                                ___   ___    ___    ___                                 ___     ___     ___     ___
+                                                      ___    ___    ___                                 ___     ___     ___
             >;
         };
 
