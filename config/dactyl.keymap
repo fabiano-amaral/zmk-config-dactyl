@@ -62,11 +62,11 @@ combo_##name {               \
 
         raise_layer {
             bindings = <
-                        ___     ___      ___      ___      ___      ___                                   &kp LEFT_BRACE      &kp RIGHT_BRACE     &kp EXCL    ___         ___      ___
-                        ___     ___      ___      ___      ___      ___                                   &kp LPAR            &kp RPAR            &kp QMARK   ___         ___      ___
-                        ___     ___      ___      ___      ___      ___                                   &kp LEFT_BRACKET    &kp RIGHT_BRACKET   ___         ___         ___      ___
-                                         ___      ___      ___      ___                                   ___                 ___                 ___         ___
-                                                  ___      ___      ___                                   ___                 ___                 ___
+                        ___     ___      ___      ___      ___      ___                                   &kp EXCL    &kp LEFT_BRACE      &kp RIGHT_BRACE        ___         ___      ___
+                        ___     ___      ___      ___      ___      ___                                   &kp QMARK   &kp LPAR            &kp RPAR               ___         ___      ___
+                        ___     ___      ___      ___      ___      ___                                   ___         &kp LEFT_BRACKET    &kp RIGHT_BRACKET      ___         ___      ___
+                                         ___      ___      ___      ___                                   ___         ___                 ___                    ___
+                                                  ___      ___      ___                                   ___         ___                 ___
             >;
         };
         adjust_layer {
