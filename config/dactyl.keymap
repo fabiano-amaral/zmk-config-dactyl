@@ -43,7 +43,7 @@ combo_##name {               \
         default_layer {
             bindings = <
                         &kp TAB     &kp Q           &kp W           &kp E           &kp R           &kp T                            &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
-                        &kp ESCAPE  &bhm LALT A     &bhm LGUI S     &bhm LSHFT D    &bhm LCTRL F    &kp G                            &kp H       &bhm LCTRL J    &bhm LSHIFT K   &bhm LGUI L     &bhm LALT SEMI      &kp SQT
+                        &kp ESCAPE  &bhm LALT A     &bhm LCTRL S     &bhm LSHFT D    &bhm LGUI F    &kp G                            &kp H       &bhm LGUI J    &bhm LSHIFT K   &bhm LCTRL L     &bhm LALT SEMI      &kp SQT
                         &caps_word  &kp Z           &kp X           &kp C           &kp V           &kp B                            &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp BSLH
                                                     &kp C_PREV      &kp C_NEXT      &lt RSE SPACE   &kp ENTER                        &kp RGUI    &lt RSE BSPC    &kp C_VOL_DN    &kp C_VOL_UP
                                                                     &mo LWR         ___             ___                              ___         ___             &lt LWR RETURN
