@@ -56,7 +56,7 @@ combo_##name {               \
                         ___         &kp TILDE   &kp MINUS       &kp CARET       &kp EQUAL       &kp LG(TAB)                         &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
                         ___         &kp GRAVE   &kp UNDER       &kp PLUS        ___             ___                                 &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
                                     ___         ___             ___             ___             ___                                 ___         ___         ___
-                                                                ___             &mo RSE         ___                                 ___         ___         ___
+                                                                ___             &mo RSE         ___                                 ___         ___         &mo RSE
             >;
         };
 
