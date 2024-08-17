@@ -1,33 +1,25 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// #include "includes/home_row.dtsi"
-#define DEFAULT 0
-#define LWR 1
-#define RSE 2
-#define xxx &none
+#define BASE 0
+#define NAV 1
+#define MOUSE 2
+#define MEDIA 3
+#define NUM 4
+#define SYM 5
+#define FUN 6
+
+#define XXX &none
 #define ___ &trans
-#define BTSEL &bt BT_SEL
-#define COMBO(name, kp, pos) \
-combo_##name {               \
-    timeout-ms    = <30>;    \
-    bindings      = <kp>;    \
-    key-positions = <pos>;   \
-    layers        = <0 1>;   \
-};
 
-&mt {
-    tapping-term-ms = <400>;
-    quick-tap-ms = <100>;
-};
-
-/{
+/ {
     combos {
         compatible = "zmk,combos";
-        COMBO(caps_word, &caps_word, 7 8)
+        // Adicione suas combinações aqui
     };
+
     behaviors {
         bhm: balanced_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -38,54 +30,71 @@ combo_##name {               \
             bindings = <&kp>, <&kp>;
         };
     };
+
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+
+        base_layer {
             bindings = <
-                        &kp TAB     &kp Q           &kp W           &kp E           &kp R           &kp T                            &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
-                        &kp ESCAPE  &bhm LALT A     &bhm LCTRL S     &bhm LSHFT D    &bhm LGUI F    &kp G                            &kp H       &bhm LGUI J    &bhm LSHIFT K   &bhm LCTRL L     &bhm LALT SEMI      &kp SQT
-                        &caps_word  &kp Z           &kp X           &kp C           &kp V           &kp B                            &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp BSLH
-                                                    &kp C_PREV      &kp C_NEXT      &lt RSE SPACE   &kp ENTER                        &kp RGUI    &lt RSE BSPC    &kp C_VOL_DN    &kp C_VOL_UP
-                                                                    &mo LWR         ___             ___                              ___         ___             &lt LWR RETURN
+                &kp Q &kp W &kp F &kp P &kp B &kp J &kp L &kp U &kp Y &kp SQT
+                &kp A &kp R &kp S &kp T &kp G &kp M &kp N &kp E &kp I &kp O
+                &kp Z &kp X &kp C &kp D &kp V &kp K &kp H &kp COMMA &kp DOT &kp FSLH
+                &kp ESC &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI
             >;
         };
 
-        lower_layer {
+        nav_layer {
             bindings = <
-                        &kp PSCRN   &kp N1      &kp N2          &kp N3          &kp N4          &kp N5                              &kp N6      &kp N7      &kp N8              &kp N9          &kp N0      &kp BSPC
-                        ___         &kp TILDE   &kp MINUS       &kp CARET       &kp EQUAL       &kp LG(TAB)                         &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
-                        ___         &kp GRAVE   &kp UNDER       &kp PLUS        ___             ___                                 &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
-                                    ___         ___             ___             ___             ___                                 ___         ___         ___
-                                                                ___             &mo RSE         ___                                 ___         ___         &mo RSE
+                &kp ESC &kp HOME &kp UP &kp END &kp PGUP &kp LEFT &kp DOWN &kp RIGHT &kp PGDN &kp DEL
+                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
+                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
+                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
             >;
         };
 
-        raise_layer {
+        mouse_layer {
             bindings = <
-                        ___     ___      ___      ___      ___      ___                                   &kp EXCL    &kp LEFT_BRACE      &kp RIGHT_BRACE        ___         ___      ___
-                        ___     ___      ___      ___      ___      ___                                   &kp QMARK   &kp LPAR            &kp RPAR               ___         ___      ___
-                        ___     ___      ___      ___      ___      ___                                   ___         &kp LEFT_BRACKET    &kp RIGHT_BRACKET      ___         ___      ___
-                                         ___      ___      ___      ___                                   ___         ___                 ___                    ___
-                                                  ___      ___      ___                                   ___         ___                 ___
-            >;
-        };
-        adjust_layer {
-            bindings = <
-                        &bt BT_CLR_ALL  BTSEL 0 BTSEL 1  BTSEL 2   BTSEL 3   BTSEL 4                    &trans  &trans  &trans  &trans  &trans  &trans
-                        &out OUT_BLE    &kp J   ___   ___    ___    &bootloader                         ___     ___     ___     ___     ___     ___
-                        &out OUT_USB    ___     ___   ___    ___    ___                                 ___     ___     ___     ___     ___     ___
-                                                ___   ___    ___    ___                                 ___     ___     ___     ___
-                                                      ___    ___    ___                                 ___     ___     ___
+                &kp ESC &kp MS_UP &kp MS_BTN1 &kp MS_BTN2 &kp MS_BTN3 &kp MS_LEFT &kp MS_DOWN &kp MS_RIGHT &kp MS_BTN4 &kp MS_BTN5
+                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
+                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
+                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
             >;
         };
 
-    };
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
+        media_layer {
+            bindings = <
+                &kp ESC &kp VOL_UP &kp MUTE &kp VOL_DOWN &kp PLAY &kp PREV &kp NEXT &kp STOP &kp REWIND &kp FORWARD
+                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
+                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
+                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+            >;
+        };
 
-        adjust {
-            if-layers = <1 2>;
-            then-layer = <3>;
+        num_layer {
+            bindings = <
+                &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9
+                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
+                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
+                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+            >;
+        };
+
+        sym_layer {
+            bindings = <
+                &kp ESC &kp EXCL &kp AT &kp HASH &kp DLLR &kp PERC &kp CARET &kp AMPS &kp ASTER &kp LPAR
+                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
+                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
+                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+            >;
+        };
+
+        fun_layer {
+            bindings = <
+                &kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
+                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
+                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
+                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+            >;
         };
     };
 };
