@@ -39,23 +39,23 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base_layer {
-            bindings = <
-                // Top Row
-                &kp Q  &kp W  &kp F  &kp P  &kp B   &kp J  &kp L  &kp U    &kp Y   &kp SQT
-
-                // Home Row (Mods when held)
-                &bhm LCTRL A &bhm LALT R &bhm LGUI S &bhm LSHFT T &kp G
-                &bhm RSHFT M &bhm RGUI N &bhm RALT E &bhm RCTRL I &kp O
-
-                // Bottom Alpha Row
-                &kp Z  &kp X  &kp C  &kp D  &kp V   &kp K  &kp H  &kp COMMA &kp DOT &kp FSLH
-
-                // Thumb Row
-                &kp ESC &mo MOUSE &mo MEDIA &kp LALT &kp LGUI
-                &lt NAV SPACE &lt NUM BSPC &lt SYM ENTER &mo FUN &kp RGUI
-            >;
-        };
+            base_layer {
+                bindings = <
+                    // Top Row
+                    &kp Q  &kp W  &kp F  &kp P  &kp B   &kp J  &kp L  &kp U    &kp Y   &kp SQT
+                    
+                    // Home Row (Fixed modifiers)
+                    &bhm LCTL A &bhm LALT R &bhm LGUI S &bhm LSFT T &kp G 
+                    &bhm RSFT M &bhm RGUI N &bhm RALT E &bhm RCTL I &kp O
+                    
+                    // Bottom Alpha Row
+                    &kp Z  &kp X  &kp C  &kp D  &kp V   &kp K  &kp H  &kp COMMA &kp DOT &kp FSLH
+                    
+                    // Thumb Row
+                    &kp ESC &mo MOUSE &mo MEDIA &kp LALT &kp LGUI 
+                    &lt NAV SPACE &lt NUM BSPC &lt SYM ENTER &mo FUN &kp RGUI
+                >;
+            };
 
         nav_layer {
             bindings = <
