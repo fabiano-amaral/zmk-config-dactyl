@@ -17,7 +17,12 @@
 / {
     combos {
         compatible = "zmk,combos";
-        // Adicione suas combinações aqui
+        // Example combo: JK for Escape
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <8 9>;
+            bindings = <&kp ESC>;
+        };
     };
 
     behaviors {
@@ -36,64 +41,113 @@
 
         base_layer {
             bindings = <
-                &kp Q &kp W &kp F &kp P &kp B &kp J &kp L &kp U &kp Y &kp SQT
-                &kp A &kp R &kp S &kp T &kp G &kp M &kp N &kp E &kp I &kp O
-                &kp Z &kp X &kp C &kp D &kp V &kp K &kp H &kp COMMA &kp DOT &kp FSLH
-                &kp ESC &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI
+                // Top Row
+                &kp Q  &kp W  &kp F  &kp P  &kp B   &kp J  &kp L  &kp U    &kp Y   &kp SQT
+
+                // Home Row (Mods when held)
+                &bhm LCTRL A &bhm LALT R &bhm LGUI S &bhm LSHFT T &kp G
+                &bhm RSHFT M &bhm RGUI N &bhm RALT E &bhm RCTRL I &kp O
+
+                // Bottom Alpha Row
+                &kp Z  &kp X  &kp C  &kp D  &kp V   &kp K  &kp H  &kp COMMA &kp DOT &kp FSLH
+
+                // Thumb Row
+                &kp ESC &mo MOUSE &mo MEDIA &kp LALT &kp LGUI
+                &lt NAV SPACE &lt NUM BSPC &lt SYM ENTER &mo FUN &kp RGUI
             >;
         };
 
         nav_layer {
             bindings = <
-                &kp ESC &kp HOME &kp UP &kp END &kp PGUP &kp LEFT &kp DOWN &kp RIGHT &kp PGDN &kp DEL
-                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
-                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
-                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+                // Navigation Cluster
+                XXX &kp HOME &kp UP   &kp END  &kp PGUP   XXX &kp LEFT &kp DOWN &kp RIGHT &kp PGDN
+
+                // Arrow Keys (WASD-style)
+                XXX &kp LSHFT &kp LCTRL &kp LALT &XXX     XXX &kp MS_WH_UP &kp MS_WH_DN &kp MS_WH_LT &kp MS_WH_RT &XXX
+
+                // Extended Navigation
+                XXX &kp CAPS &kp INS  &kp DEL  &XXX       XXX &kp C_BRI_UP &kp C_BRI_DN &kp MUTE &kp VOLD &kp VOLU
+
+                // Thumb Row
+                ___ ___ ___ ___ ___    ___ ___ ___ ___ ___
             >;
         };
 
         mouse_layer {
             bindings = <
-                &kp ESC &kp MS_UP &kp MS_BTN1 &kp MS_BTN2 &kp MS_BTN3 &kp MS_LEFT &kp MS_DOWN &kp MS_RIGHT &kp MS_BTN4 &kp MS_BTN5
-                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
-                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
-                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+                XXX &kp MS_UP &kp MS_BTN1 &kp MS_BTN2 &kp MS_BTN3     XXX &kp MS_LEFT &kp MS_DOWN &kp MS_RIGHT &XXX
+
+                // Scroll Wheel
+                XXX &kp MS_WH_UP &kp MS_WH_DN &kp MS_WH_LT &kp MS_WH_RT &XXX     XXX &XXX &XXX &XXX &XXX
+
+                // Media Controls
+                XXX &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN     XXX &kp F1 &kp F2 &kp F3 &kp F4
+
+                // Thumb Row
+                ___ ___ ___ ___ ___    ___ ___ ___ ___ ___
             >;
         };
 
         media_layer {
             bindings = <
-                &kp ESC &kp VOL_UP &kp MUTE &kp VOL_DOWN &kp PLAY &kp PREV &kp NEXT &kp STOP &kp REWIND &kp FORWARD
-                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
-                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
-                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+                XXX &kp C_BRI_UP &kp C_BRI_DN &kp C_MIC_MUTE &XXX     XXX &kp PREV &kp NEXT &kp STOP &XXX
+
+                // Volume Controls
+                XXX &kp C_VOL_UP &kp C_VOL_DN &kp MUTE &kp C_PP     XXX &kp F5 &kp F6 &kp F7 &kp F8 &XXX
+
+                // Media Transport
+                XXX &kp MRWD &kp MFFD &kp MBTN1 &kp MBTN2 &XXX     XXX &kp F9 &kp F10 &kp F11 &kp F12 &XXX
+
+                // Thumb Row
+                ___ ___ ___ ___ ___    ___ ___ ___ ___ ___
             >;
         };
 
         num_layer {
             bindings = <
-                &kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9
-                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
-                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
-                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+                // Numbers & Operators
+                XXX &kp N1 &kp N2 &kp N3 &kp PLUS     XXX &kp N4 &kp N5 &kp N6 &kp MINUS
+
+                // Extended Number Pad
+                XXX &kp N7 &kp N8 &kp N9 &kp ASTERISK     XXX &kp DOT &kp N0 &kp EQUAL &kp FSLH
+
+                // NumPad Layout
+                XXX &kp LPAR &kp RPAR &kp LBKT &kp RBKT &kp AMPS     XXX &kp EXCL &kp AT &kp HASH &kp DLLR &kp PERC
+
+                // Thumb Row
+                ___ ___ ___ ___ ___    ___ ___ ___ ___ ___
             >;
         };
 
         sym_layer {
             bindings = <
-                &kp ESC &kp EXCL &kp AT &kp HASH &kp DLLR &kp PERC &kp CARET &kp AMPS &kp ASTER &kp LPAR
-                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
-                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
-                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+                // Symbols
+                XXX &kp EXCL &kp AT &kp HASH &kp DLLR &kp PERC     XXX &kp CARET &kp AMPS &kp ASTER &kp LPAR &kp RPAR
+
+                // Brackets & Operators
+                XXX &kp LBKT &kp RBKT &kp LBRC &kp RBRC &kp PIPE     XXX &kp MINUS &kp UNDER &kp PLUS &kp EQUAL &kp TILDE
+
+                // Advanced Symbols
+                XXX &kp COLON &kp SCLN &kp COMMA &kp DOT &kp FSLH     XXX &kp QMARK &kp BSLH &kp SQT &kp DQUO &kp GRAVE
+
+                // Thumb Row
+                ___ ___ ___ ___ ___    ___ ___ ___ ___ ___
             >;
         };
 
         fun_layer {
             bindings = <
-                &kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
-                &kp TAB &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp SPACE &kp BSPC &kp ENTER &kp RGUI &kp INS
-                &kp CAPS &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9
-                &kp F10 &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE &kp INSERT &kp DELETE &kp HOME &kp END
+                // Function Keys
+                XXX &kp F1 &kp F2 &kp F3 &kp F4 &kp F5     XXX &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+
+                // System Keys
+                XXX &kp F11 &kp F12 &kp PSCRN &kp SLCK &kp PAUSE     XXX &kp INS &kp DEL &kp HOME &kp END &kp POWER
+
+                // Special Functions
+                XXX &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR     XXX &out OUT_TOG &kp RGB_TOG &kp RGB_MOD &kp RGB_HUI &kp RGB_SAI
+
+                // Thumb Row
+                ___ ___ ___ ___ ___    ___ ___ ___ ___ ___
             >;
         };
     };
