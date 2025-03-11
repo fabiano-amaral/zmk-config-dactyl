@@ -3,89 +3,123 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// #include "includes/home_row.dtsi"
-#define DEFAULT 0
-#define LWR 1
-#define RSE 2
-#define xxx &none
-#define ___ &trans
-#define BTSEL &bt BT_SEL
-#define COMBO(name, kp, pos) \
-combo_##name {               \
-    timeout-ms    = <30>;    \
-    bindings      = <kp>;    \
-    key-positions = <pos>;   \
-    layers        = <0 1>;   \
-};
+/*
+ * Layout Miryoku para Dactyl
+ * Inspirado no layout original de Manna Harbour
+ * https://github.com/manna-harbour/miryoku
+ */
 
+// Definições de camadas
+#define COLEMAK 0  // Camada base - Colemak-DH
+#define NAV     1  // Navegação
+#define MOUSE   2  // Mouse (não implementado no ZMK, mantido para compatibilidade)
+#define MEDIA   3  // Controles de Mídia
+#define NUM     4  // Número
+#define SYM     5  // Símbolos
+#define FUN     6  // Funções
+
+// Atalhos para definições mais limpas
+#define XXX &none         // Tecla desativada
+#define ___ &trans        // Transparente para a camada abaixo
+
+// Comportamentos para as teclas de polegares
 &mt {
-    tapping-term-ms = <400>;
+    tapping-term-ms = <200>;
     quick-tap-ms = <100>;
+    flavor = "tap-preferred";
 };
 
-/{
-    combos {
-        compatible = "zmk,combos";
-        COMBO(caps_word, &caps_word, 7 8)
-    };
+/ {
     behaviors {
-        bhm: balanced_homerow_mods {
+        hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "balanced";
+            quick-tap-ms = <100>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
     };
+
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+
+        // Camada base - Colemak-DH
+        colemak_layer {
             bindings = <
-                        &kp TAB     &kp Q           &kp W           &kp E           &kp R           &kp T                            &kp Y       &kp U           &kp I           &kp O           &kp P               &kp MINUS
-                        &kp ESCAPE  &bhm LALT A     &bhm LCTRL S     &bhm LSHFT D    &bhm LGUI F    &kp G                            &kp H       &bhm LGUI J    &bhm LSHIFT K   &bhm LCTRL L     &bhm LALT SEMI      &kp SQT
-                        &caps_word  &kp Z           &kp X           &kp C           &kp V           &kp B                            &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp BSLH
-                                                    &kp C_PREV      &kp C_NEXT      &lt RSE SPACE   &kp ENTER                        &kp RGUI    &lt RSE BSPC    &kp C_VOL_DN    &kp C_VOL_UP
-                                                                    &mo LWR         ___             ___                              ___         ___             &lt LWR RETURN
+                XXX     &kp Q           &kp W           &kp F           &kp P           &kp B                           &kp J       &kp L           &kp U           &kp Y           &kp SEMI        XXX
+                XXX     &hm LGUI A      &hm LALT R      &hm LCTRL S     &hm LSHFT T     &kp G                           &kp M       &hm RSHFT N     &hm RCTRL E     &hm LALT I      &hm RGUI O      XXX
+                XXX     &kp Z           &kp X           &kp C           &kp D           &kp V                           &kp K       &kp H           &kp COMMA       &kp DOT         &kp SLASH       XXX
+                                        XXX             XXX             &lt NAV SPACE   &lt MEDIA ESC                   &lt SYM TAB &lt NUM ENTER   XXX             XXX
+                                                        XXX             &lt MOUSE BSPC  &lt FUN DEL                     XXX         XXX             XXX
             >;
         };
 
-        lower_layer {
+        // Navegação
+        nav_layer {
             bindings = <
-                        &kp PSCRN   &kp N1      &kp N2          &kp N3          &kp N4          &kp N5                              &kp N6      &kp N7      &kp N8              &kp N9          &kp N0      &kp BSPC
-                        ___         &kp TILDE   &kp MINUS       &kp CARET       &kp EQUAL       &kp LG(TAB)                         &kp LEFT    &kp DOWN    &kp UP              &kp RIGHT       ___          ___
-                        ___         &kp GRAVE   &kp UNDER       &kp PLUS        ___             ___                                 &kp HOME    &kp END     &kp PAGE_DOWN       &kp PG_UP       ___          ___
-                                    ___         ___             ___             ___             ___                                 ___         ___         ___
-                                                                ___             &mo RSE         ___                                 ___         ___         &mo RSE
+                XXX     XXX             XXX             XXX             XXX             XXX                             &kp HOME    &kp PG_DN       &kp PG_UP       &kp END         XXX             XXX
+                XXX     &kp LGUI        &kp LALT        &kp LCTRL       &kp LSHFT       XXX                             &kp LEFT    &kp DOWN        &kp UP          &kp RIGHT       &kp CAPS        XXX
+                XXX     XXX             XXX             XXX             XXX             XXX                             &kp INS     &kp DEL         XXX             XXX             XXX             XXX
+                                        XXX             XXX             ___             ___                             ___         ___             XXX             XXX
+                                                        XXX             ___             ___                             XXX         XXX             XXX
             >;
         };
 
-        raise_layer {
+        // Mouse (mantido para compatibilidade, não implementado no ZMK)
+        mouse_layer {
             bindings = <
-                        ___     ___      ___      ___      ___      ___                                   &kp EXCL    &kp LEFT_BRACE      &kp RIGHT_BRACE        ___         ___      ___
-                        ___     ___      ___      ___      ___      ___                                   &kp QMARK   &kp LPAR            &kp RPAR               ___         ___      ___
-                        ___     ___      ___      ___      ___      ___                                   ___         &kp LEFT_BRACKET    &kp RIGHT_BRACKET      ___         ___      ___
-                                         ___      ___      ___      ___                                   ___         ___                 ___                    ___
-                                                  ___      ___      ___                                   ___         ___                 ___
-            >;
-        };
-        adjust_layer {
-            bindings = <
-                        &bt BT_CLR_ALL  BTSEL 0 BTSEL 1  BTSEL 2   BTSEL 3   BTSEL 4                    &trans  &trans  &trans  &trans  &trans  &trans
-                        &out OUT_BLE    &kp J   ___   ___    ___    &bootloader                         ___     ___     ___     ___     ___     ___
-                        &out OUT_USB    ___     ___   ___    ___    ___                                 ___     ___     ___     ___     ___     ___
-                                                ___   ___    ___    ___                                 ___     ___     ___     ___
-                                                      ___    ___    ___                                 ___     ___     ___
+                XXX     XXX             XXX             XXX             XXX             XXX                             XXX         XXX             XXX             XXX             XXX             XXX
+                XXX     &kp LGUI        &kp LALT        &kp LCTRL       &kp LSHFT       XXX                             XXX         XXX             XXX             XXX             XXX             XXX
+                XXX     XXX             XXX             XXX             XXX             XXX                             XXX         XXX             XXX             XXX             XXX             XXX
+                                        XXX             XXX             ___             ___                             ___         ___             XXX             XXX
+                                                        XXX             ___             ___                             XXX         XXX             XXX
             >;
         };
 
-    };
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
+        // Controles de Mídia
+        media_layer {
+            bindings = <
+                XXX     XXX             XXX             XXX             XXX             XXX                             &kp K_MUTE  &kp C_VOL_DN    &kp C_VOL_UP    &kp K_PP        XXX             XXX
+                XXX     &kp LGUI        &kp LALT        &kp LCTRL       &kp LSHFT       XXX                             &kp C_PREV  &kp C_NEXT      XXX             XXX             XXX             XXX
+                XXX     XXX             XXX             XXX             XXX             XXX                             &out OUT_TOG &bt BT_CLR     &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    XXX
+                                        XXX             XXX             ___             ___                             ___         ___             XXX             XXX
+                                                        XXX             ___             ___                             XXX         XXX             XXX
+            >;
+        };
 
-        adjust {
-            if-layers = <1 2>;
-            then-layer = <3>;
+        // Números
+        num_layer {
+            bindings = <
+                XXX     &kp LBKT        &kp N7          &kp N8          &kp N9          &kp RBKT                        XXX         XXX             XXX             XXX             XXX             XXX
+                XXX     &kp SEMI        &kp N4          &kp N5          &kp N6          &kp EQUAL                       XXX         &kp RSHFT       &kp RCTRL       &kp LALT        &kp RGUI        XXX
+                XXX     &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp BSLH                        XXX         XXX             XXX             XXX             XXX             XXX
+                                        XXX             XXX             &kp DOT         &kp N0                         ___         ___             XXX             XXX
+                                                        XXX             ___             ___                             XXX         XXX             XXX
+            >;
+        };
+
+        // Símbolos
+        sym_layer {
+            bindings = <
+                XXX     &kp LBRC        &kp AMPS        &kp ASTRK       &kp LPAR        &kp RBRC                        XXX         XXX             XXX             XXX             XXX             XXX
+                XXX     &kp COLON       &kp DLLR        &kp PRCNT       &kp CARET       &kp PLUS                        XXX         &kp RSHFT       &kp RCTRL       &kp LALT        &kp RGUI        XXX
+                XXX     &kp TILDE       &kp EXCL        &kp AT          &kp HASH        &kp PIPE                        XXX         XXX             XXX             XXX             XXX             XXX
+                                        XXX             XXX             ___             ___                             ___         ___             XXX             XXX
+                                                        XXX             ___             ___                             XXX         XXX             XXX
+            >;
+        };
+
+        // Funções
+        fun_layer {
+            bindings = <
+                XXX     &kp F12         &kp F7          &kp F8          &kp F9          &kp PSCRN                       XXX         XXX             XXX             XXX             XXX             XXX
+                XXX     &kp F11         &kp F4          &kp F5          &kp F6          &kp SLCK                        XXX         &kp RSHFT       &kp RCTRL       &kp LALT        &kp RGUI        XXX
+                XXX     &kp F10         &kp F1          &kp F2          &kp F3          &kp PAUSE_BREAK                 XXX         XXX             XXX             XXX             XXX             XXX
+                                        XXX             XXX             ___             ___                             ___         ___             XXX             XXX
+                                                        XXX             ___             ___                             XXX         XXX             XXX
+            >;
         };
     };
 };
