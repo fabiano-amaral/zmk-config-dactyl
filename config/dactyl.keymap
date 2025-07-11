@@ -60,7 +60,7 @@ combo_##name {               \
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
-        
+
         // Macro para comentários de linha dupla
         td_comment: tap_dance_comment {
             compatible = "zmk,behavior-tap-dance";
@@ -68,7 +68,7 @@ combo_##name {               \
             tapping-term-ms = <200>;
             bindings = <&kp FSLH>, <&macro_comment>;
         };
-        
+
         // Macro para operadores de comparação
         td_equal: tap_dance_equal {
             compatible = "zmk,behavior-tap-dance";
@@ -77,45 +77,45 @@ combo_##name {               \
             bindings = <&kp EQUAL>, <&macro_equal_equal>;
         };
     };
-    
+
     macros {
         macro_comment: macro_comment {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp FSLH &kp FSLH &kp SPACE>;
         };
-        
+
         macro_equal_equal: macro_equal_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp EQUAL &kp EQUAL>;
         };
-        
+
         macro_not_equal: macro_not_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp EXCL &kp EQUAL>;
         };
-        
+
         macro_arrow: macro_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp EQUAL &kp GT>;
         };
-        
+
         // Macros específicos para macOS/desenvolvimento
         macro_cmd_opt_left: macro_cmd_opt_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LG(LA(LEFT))>;
         };
-        
+
         macro_cmd_opt_right: macro_cmd_opt_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LG(LA(RIGHT))>;
         };
-        
+
         macro_screenshot: macro_screenshot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -153,7 +153,7 @@ combo_##name {               \
                                                         ___         ___         ___                                     ___         ___             ___
             >;
         };
-        
+
         function_layer {
             bindings = <
                         &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                              &kp F6      &kp F7          &kp F8          &kp F9          &kp F10     &kp F11
@@ -163,7 +163,7 @@ combo_##name {               \
                                                             ___         ___         ___                                 ___         ___             ___
             >;
         };
-        
+
         adjust_layer {
             bindings = <
                         &bt BT_CLR_ALL  BTSEL 0 BTSEL 1  BTSEL 2   BTSEL 3   BTSEL 4                    &trans  &trans  &trans  &trans  &trans  &trans
