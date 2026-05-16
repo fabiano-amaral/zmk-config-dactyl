@@ -51,7 +51,7 @@ combo_##name {               \
         COMBO(reload, &kp LG(R), 5 6)        // T+Y para Cmd+R (reload)
         COMBO(dev_tools, &kp LG(LA(I)), 6 7) // Y+U para Cmd+Opt+I (DevTools)
         COMBO(escape, &kp ESC, 0 12)         // Tab+Esc para ESC rápido
-        COMBO(dota, &tog DOTA, 0 1 2)        // Tab+Q+W alterna o layer Dota 2
+        COMBO(dota, &tog DOTA, 0 1 2)        // Tab+Q+W toggles Dota 2 layer
     };
     behaviors {
         bhm: balanced_homerow_mods {
